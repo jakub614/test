@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="cs"><head><meta charset="utf-8">
+<title>Průvod králů – titulní fotka Facebooku</title>
+<link href="pisma/pisma.css" rel="stylesheet">
+<style>
+/* Plátno 1640 × 924 px (16 : 9).
+   Mobil ukáže celé plátno, počítač jen prostřední pás ~1640 × 608 px
+   (y 158–766). Všechno důležité proto stojí v tomto pásu. */
+:root { --navy:#1C244B; --navy-deep:#0F1430; --gold:#D3A451; --gold-deep:#9B6C1B; --cream:#F2E0C8; }
+html,body { margin:0; }
+.platno {
+  width:1640px; height:924px; position:relative; overflow:hidden;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 48%, rgba(211,164,81,.16), transparent 70%),
+    radial-gradient(ellipse 120% 90% at 50% 50%, var(--navy) 35%, var(--navy-deep) 100%);
+}
+/* S fotkou z hero: data-foto na <body> a soubor hero.jpg vedle šablony */
+body[data-foto] .platno {
+  background:
+    linear-gradient(180deg, rgba(15,20,48,.55) 0%, rgba(15,20,48,.35) 40%, rgba(15,20,48,.75) 100%),
+    url("hero.jpg") center 40% / cover no-repeat;
+}
+.vzor { position:absolute; inset:0; opacity:.07;
+  background-image: radial-gradient(circle at 20px 20px, var(--gold) 2px, transparent 3px);
+  background-size: 40px 40px; }
+body[data-foto] .vzor { display:none; }
+.obsah { position:absolute; left:0; right:0; top:178px; height:568px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.koruna { width:200px; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); margin-bottom:6px; }
+h1 {
+  font-family:'Uncial Antiqua', serif; font-weight:400; margin:0; line-height:1;
+  font-size:156px; color:var(--gold); letter-spacing:.01em;
+  -webkit-text-stroke: 2px var(--gold-deep);
+  text-shadow: 0 4px 0 rgba(110,75,16,.55), 0 10px 26px rgba(0,0,0,.55);
+}
+.linka { display:flex; align-items:center; gap:22px; margin:30px 0 0; color:var(--gold); }
+.linka i { display:block; width:150px; height:2px; background:linear-gradient(90deg,transparent,var(--gold)); }
+.linka i:last-child { background:linear-gradient(90deg,var(--gold),transparent); }
+.linka b { width:12px; height:12px; transform:rotate(45deg); background:var(--gold); }
+.claim {
+  font-family:'Spectral SC', serif; font-weight:500; font-size:50px; letter-spacing:.06em;
+  color:var(--cream); margin:22px 0 0; text-shadow:0 2px 12px rgba(0,0,0,.6);
+}
+/* Kontrolní rámeček bezpečné zóny – jen při ?zona */
+.zona { display:none; position:absolute; left:0; right:0; top:158px; height:608px;
+  outline:3px dashed #ff4d4d; }
+body[data-zona] .zona { display:block; }
+</style></head>
+<body>
+<div class="platno">
+  <div class="vzor"></div>
+  <div class="obsah">
+    <img class="koruna" src="koruna.svg" alt="">
+    <h1>Průvod králů</h1>
+    <div class="linka"><i></i><b></b><i></i></div>
+    <p class="claim">České dějiny kráčí ulicemi</p>
+  </div>
+  <div class="zona"></div>
+</div>
+<script>
+  const q = new URLSearchParams(location.search);
+  if (q.has('foto')) document.body.dataset.foto = '';
+  if (q.has('zona')) document.body.dataset.zona = '';
+</script>
+</body></html>

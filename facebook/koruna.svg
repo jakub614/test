@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Zástupná koruna. Nahraďte souborem assets/koruna.svg z webu (stejný název). -->
+  <defs>
+    <linearGradient id="zlato" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F3D99A"/>
+      <stop offset=".45" stop-color="#D3A451"/>
+      <stop offset="1" stop-color="#9B6C1B"/>
+    </linearGradient>
+    <linearGradient id="pas" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E6C27A"/>
+      <stop offset="1" stop-color="#8E6216"/>
+    </linearGradient>
+  </defs>
+  <g stroke="#6E4B10" stroke-width="5" stroke-linejoin="round">
+    <!-- tělo koruny s pěti hroty -->
+    <path fill="url(#zlato)" d="M40 228 L28 92 L104 160 L148 66 L200 140 L252 66 L296 160 L372 92 L360 228 Z"/>
+    <!-- lilie / kuličky na hrotech -->
+    <circle cx="28" cy="84" r="15" fill="url(#zlato)"/>
+    <circle cx="372" cy="84" r="15" fill="url(#zlato)"/>
+    <circle cx="148" cy="56" r="15" fill="url(#zlato)"/>
+    <circle cx="252" cy="56" r="15" fill="url(#zlato)"/>
+    <path fill="url(#zlato)" d="M200 20 C214 40 226 52 226 70 C226 86 214 96 200 104 C186 96 174 86 174 70 C174 52 186 40 200 20 Z"/>
+    <path fill="url(#zlato)" d="M200 104 L200 140"/>
+    <!-- čelenka -->
+    <rect x="34" y="218" width="332" height="50" rx="8" fill="url(#pas)"/>
+  </g>
+  <!-- drahokamy -->
+  <g stroke="#3a2a08" stroke-width="3">
+    <ellipse cx="200" cy="243" rx="20" ry="15" fill="#9d3232"/>
+    <ellipse cx="120" cy="243" rx="14" ry="11" fill="#1C4B8A"/>
+    <ellipse cx="280" cy="243" rx="14" ry="11" fill="#1C4B8A"/>
+    <circle cx="66" cy="243" r="8" fill="#F2E0C8"/>
+    <circle cx="334" cy="243" r="8" fill="#F2E0C8"/>
+    <ellipse cx="200" cy="176" rx="12" ry="16" fill="#9d3232"/>
+  </g>
+  <path d="M48 226 H352" stroke="#F6E3B0" stroke-width="3" opacity=".7"/>
+</svg>
